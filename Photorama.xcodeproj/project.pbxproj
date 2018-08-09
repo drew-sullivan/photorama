@@ -92,6 +92,7 @@
 				7C647BAF211C946400BA91AA /* Photo.swift */,
 				7C647BAB211C7E8A00BA91AA /* FlickrAPI.swift */,
 				7C647BAD211C81C100BA91AA /* PhotoStore.swift */,
+				7C647BB3211CCA4D00BA91AA /* PhotoCollectionViewCell.swift */,
 				7C647B7A211C79BA00BA91AA /* Photorama */,
 				7C647B8F211C79BB00BA91AA /* PhotoramaTests */,
 				7C647B9A211C79BB00BA91AA /* PhotoramaUITests */,
@@ -114,7 +115,6 @@
 			children = (
 				7C647B7B211C79BA00BA91AA /* AppDelegate.swift */,
 				7C647B7F211C79BA00BA91AA /* Main.storyboard */,
-				7C647BB3211CCA4D00BA91AA /* PhotoCollectionViewCell.swift */,
 				7C647B82211C79BB00BA91AA /* Assets.xcassets */,
 				7C647B84211C79BB00BA91AA /* LaunchScreen.storyboard */,
 				7C647B87211C79BB00BA91AA /* Info.plist */,

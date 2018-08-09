@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="2" minY="2" maxX="2" maxY="2"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoViewCollectionCell" id="Shw-Zp-1Nf" customClass="PhotoCollectionViewCell" customModule="Photorama" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="Shw-Zp-1Nf" customClass="PhotoCollectionViewCell" customModule="Photorama" customModuleProvider="target">
                                         <rect key="frame" x="2" y="2" width="90" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -48,7 +48,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="imageView" destination="7wL-bp-yeF" id="bdL-HV-yvQ"/>
-                                            <outlet property="spinner" destination="dtP-35-w4k" id="hI2-sh-vnG"/>
+                                            <outlet property="spinner" destination="dtP-35-w4k" id="erd-pH-ye4"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -65,7 +65,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Photorama" id="zY8-yM-lmL"/>
                     <connections>
-                        <outlet property="collectionView" destination="GVF-Qd-H4g" id="ea4-2k-NmR"/>
+                        <outlet property="collectionView" destination="GVF-Qd-H4g" id="1Kc-wc-Q8K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
