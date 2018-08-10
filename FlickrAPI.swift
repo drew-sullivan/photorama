@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 enum FlickrError: Error {
     case invalidJSONData
@@ -85,7 +86,7 @@ struct FlickrAPI {
         }
     }
     
-    private static func photo(fromJSON json: [String : Any]) -> Photo? {
+    private static func photo(fromJSON json: [String : Any], into context: NSManagedObjectContext) -> Photo? {
         guard
             let photoID = json["id"] as? String,
             let title = json["title"] as? String,
@@ -96,6 +97,15 @@ struct FlickrAPI {
                 return nil
         }
         
-        return Photo(title: title, photoID: photoID, remoteURL: url, dateTaken: dateTaken)
+        var photo: Photo!
+        context.performAndWait {
+            photo = Photo(context: context)
+            photo.title = title
+            photo.photoID = photoID
+            photo.remoteURL = url as NSURL
+            photo.dateTaken = dateTaken as NSDate
+        }
+        
+        return photo
     }
 }
