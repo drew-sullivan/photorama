@@ -58,7 +58,7 @@ struct FlickrAPI {
         return components.url!
     }
     
-    static func photos(fromJSON data: Data) -> PhotosResult {
+    static func photos(fromJSON data: Data, into context: NSManagedObjectContext) -> PhotosResult {
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
             
@@ -71,7 +71,7 @@ struct FlickrAPI {
             
             var finalPhotos = [Photo]()
             for photoJSON in photosArray {
-                if let photo = photo(fromJSON: photoJSON) {
+                if let photo = photo(fromJSON: photoJSON, into: context) {
                     finalPhotos.append(photo)
                 }
             }
@@ -95,6 +95,18 @@ struct FlickrAPI {
             let url = URL(string: photoURLString),
             let dateTaken = dateFormatter.date(from: dateString) else {
                 return nil
+        }
+        
+        let fetchRequest: NSFetchRequest<Photo> = Photo.fetchRequest()
+        let predicate = NSPredicate(format: "\(#keyPath(Photo.photoID)) == \(photoID)")
+        fetchRequest.predicate = predicate
+        
+        var fetchedPhotos: [Photo]?
+        context.performAndWait {
+            fetchedPhotos = try? fetchRequest.execute()
+        }
+        if let existingPhoto = fetchedPhotos?.first {
+            return existingPhoto
         }
         
         var photo: Photo!
